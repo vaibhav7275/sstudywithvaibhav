@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STUDYWITHVAIBHAV</title>
+    <link rel="stylesheet" href="study_simple.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div class="brand-text">
+            <h1>STUDYWITHVAIBHAV</h1>
+            <p>Simple personal library for your study PDFs & notes.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <input
+            type="search"
+            id="search-input"
+            class="search-input"
+            placeholder="Search by title, notes, or tag..."
+          />
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="sidebar">
+          <div class="sidebar-header">
+            <h2>Folders</h2>
+            <button id="add-folder-btn" class="icon-btn" title="Add folder">
+              +
+            </button>
+          </div>
+          <nav id="folder-list" class="folder-list"></nav>
+          <p class="hint">
+            Use folders for subjects, exams, or topics (e.g. Physics, JEE,
+            Notes).
+          </p>
+        </aside>
+
+        <main class="content">
+          <section class="content-header">
+            <div>
+              <h2 id="current-folder-name">All documents</h2>
+              <p id="current-folder-desc">
+                Everything you save will appear here. Filter by folder on the
+                left.
+              </p>
+            </div>
+            <button id="add-doc-btn" class="primary-btn">Add document</button>
+          </section>
+
+          <section id="doc-grid" class="doc-grid"></section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <small>
+          Stored only in this browser using local storage. To share online, put
+          these files on GitHub Pages or any static host.
+        </small>
+      </footer>
+    </div>
+
+    <!-- Folder dialog -->
+    <dialog id="folder-dialog" class="dialog">
+      <form method="dialog" class="dialog-body" id="folder-form">
+        <h3>Create folder</h3>
+        <label class="field">
+          <span>Folder name</span>
+          <input
+            type="text"
+            id="folder-name-input"
+            placeholder="e.g., Physics, Maths, Notes"
+            required
+          />
+        </label>
+        <label class="field">
+          <span>Description (optional)</span>
+          <input
+            type="text"
+            id="folder-desc-input"
+            placeholder="Short note about this folder"
+          />
+        </label>
+        <menu class="dialog-actions">
+          <button type="reset" class="ghost-btn">Cancel</button>
+          <button type="submit" class="primary-btn">Save folder</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <!-- Document dialog -->
+    <dialog id="doc-dialog" class="dialog">
+      <form method="dialog" class="dialog-body" id="doc-form">
+        <h3>Add document</h3>
+        <label class="field">
+          <span>Title</span>
+          <input
+            type="text"
+            id="doc-title-input"
+            placeholder="e.g., Class 10 Physics Chapter 1"
+            required
+          />
+        </label>
+        <label class="field">
+          <span>Folder</span>
+          <select id="doc-folder-select" required></select>
+        </label>
+        <label class="field">
+          <span>PDF file (optional, stored only on this device)</span>
+          <input
+            type="file"
+            id="doc-pdf-input"
+            accept="application/pdf"
+          />
+        </label>
+        <label class="field">
+          <span>External link (optional)</span>
+          <input
+            type="url"
+            id="doc-link-input"
+            placeholder="https://drive.google.com/..."
+          />
+        </label>
+        <label class="field">
+          <span>Notes (optional)</span>
+          <textarea
+            id="doc-notes-input"
+            rows="3"
+            placeholder="Short notes, exam tips, or chapter list"
+          ></textarea>
+        </label>
+        <label class="field">
+          <span>Tag (optional)</span>
+          <input
+            type="text"
+            id="doc-tag-input"
+            placeholder="e.g., Physics, JEE, Revision"
+          />
+        </label>
+        <menu class="dialog-actions">
+          <button type="reset" class="ghost-btn">Cancel</button>
+          <button type="submit" class="primary-btn">Save document</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="study_simple.js"></script>
+  </body>
+  </html>
+
